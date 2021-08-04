@@ -1,6 +1,6 @@
 {
   "name": "capacitor-firebase-appcheck",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Integrates native AppCheck functionality with CapacitorJS Hybrid Applications",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
