@@ -1,18 +1,47 @@
 import Foundation
 import Capacitor
+import FirebaseCore
+import FirebaseAppCheck
 
-/**
- * Please read the Capacitor iOS Plugin Development Guide
- * here: https://capacitorjs.com/docs/plugins/ios
- */
-@objc(AppCheckPlugin)
-public class AppCheckPlugin: CAPPlugin {
-    private let implementation = AppCheck()
-
-    @objc func echo(_ call: CAPPluginCall) {
-        let value = call.getString("value") ?? ""
+@objc(AppcheckPlugin)
+public class AppcheckPlugin: CAPPlugin {
+    @objc func initialize(_ call: CAPPluginCall) {
+        let debugMode = call.getBool("debug", false)
+        if (debugMode) {
+            NSLog("AppCheck using Debug settings")
+            AppCheck.setAppCheckProviderFactory(
+                AppCheckDebugProviderFactory()
+            )
+        } else {
+            NSLog("AppCheck using App Attest or Device Check [Prod]")
+            AppCheck.setAppCheckProviderFactory(
+                CustomAppCheckProviderFactory()
+            )
+        }
+        if (FirebaseApp.app() == nil) {
+            FirebaseApp.configure()
+        }
         call.resolve([
-            "value": implementation.echo(value)
+            "success": true
         ])
     }
+    
+    @objc func getAppCheckToken(_ call: CAPPluginCall) {
+        AppCheck.appCheck().token(forcingRefresh: false) { token, error in
+            guard error == nil else {
+                call.reject("Failed to retrieve App Check token: \(error!)")
+                return
+            }
+            guard let token = token else {
+                call.reject("Unable to retreive App Check token")
+                return
+            }
+            NSLog("Appcheck token obtained. Is: \(token.token)")
+            call.resolve([
+                "token": token.token,
+                "exp": Int64(token.expirationDate.timeSince1970 * 1000)
+            ])
+        }
+    }
 }
+

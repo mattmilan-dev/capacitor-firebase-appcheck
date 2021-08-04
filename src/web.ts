@@ -1,10 +1,12 @@
 import { WebPlugin } from '@capacitor/core';
 
-import type { AppCheckPlugin } from './definitions';
+import type { AppCheckPlugin, AppCheckToken } from './definitions';
 
 export class AppCheckWeb extends WebPlugin implements AppCheckPlugin {
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
-    return options;
+  initialize(_options: { debug: boolean; }): Promise<{ success: boolean; }> {
+    throw this.unimplemented('Not implemented on the web.');
+  }
+  getAppCheckToken(): Promise<AppCheckToken> {
+    throw this.unimplemented('Not implemented on the web.');
   }
 }
