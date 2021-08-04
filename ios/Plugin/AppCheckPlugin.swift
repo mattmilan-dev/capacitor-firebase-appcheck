@@ -39,7 +39,7 @@ public class AppcheckPlugin: CAPPlugin {
             NSLog("Appcheck token obtained. Is: \(token.token)")
             call.resolve([
                 "token": token.token,
-                "exp": Int64(token.expirationDate.timeSince1970 * 1000)
+                "exp": Int64(token.expirationDate.timeIntervalSince1970 * 1000)
             ])
         }
     }
