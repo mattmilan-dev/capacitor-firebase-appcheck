@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "mattmilan-dev",
+      "name": "Matt Milan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49694881?v=4",
+      "profile": "https://mattmilan.dev/",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "capacitor-firebase-appcheck",
+  "projectOwner": "mattmilan-dev",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
