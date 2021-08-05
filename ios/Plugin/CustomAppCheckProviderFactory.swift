@@ -1,9 +1,13 @@
-//
-//  CustomAppCheckProviderFactory.swift
-//  Plugin
-//
-//  Created by Matt Milan on 05/08/2021.
-//  Copyright © 2021 Max Lynch. All rights reserved.
-//
-
 import Foundation
+import FirebaseCore
+import FirebaseAppCheck
+
+class CustomAppCheckProviderFactory: NSObject, AppCheckProviderFactory {
+    func createProvider(with app: FirebaseApp) -> AppCheckProvider? {
+        if #available(iOS 14.0, *) {
+            return AppAttestProvider(app: app);
+        } else {
+            return DeviceCheckProvider(app: app);
+        }
+    }
+}
