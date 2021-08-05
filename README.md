@@ -1,4 +1,7 @@
 # capacitor-firebase-appcheck
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Allows usage of native AppCheck tokens in a Capacitor Hybrid application. 
 From the [Firebase Docs](https://firebase.google.com/docs/app-check):
@@ -158,3 +161,23 @@ Get's the native AppCheck token from AppAttest/DeviceCheck on iOS[&gt;=14/&lt;14
 | **`exp`** | <code>number</code> | The expiration date of the token in milliseconds since epoch [Unix time] | 1.0.0 |
 
 </docgen-api>
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://mattmilan.dev/"><img src="https://avatars.githubusercontent.com/u/49694881?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matt Milan</b></sub></a><br /><a href="https://github.com/mattmilan-dev/capacitor-firebase-appcheck/commits?author=mattmilan-dev" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
