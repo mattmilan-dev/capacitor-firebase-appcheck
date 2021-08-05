@@ -1,5 +1,6 @@
 package studio.devleaf.capacitorfirebaseappcheck;
 
+import android.util.Log;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
@@ -52,7 +53,7 @@ public class AppCheckPlugin extends Plugin {
             .getAppCheckToken(false)
             .addOnSuccessListener(new OnSuccessListener<AppCheckToken>() {
                 @Override
-                public void onSuccess(@NonNull AppCheckToken tokenResponse) {
+                public void onSuccess(AppCheckToken tokenResponse) {
                     String appCheckToken = tokenResponse.getToken();
                     JSObject ret = new JSObject();
                     ret.put("token", appCheckToken);
@@ -62,7 +63,7 @@ public class AppCheckPlugin extends Plugin {
             })
             .addOnFailureListener(new OnFailureListener() {
                 @Override
-                public void onFailure(@NonNull @NotNull Exception e) {
+                public void onFailure(Exception e) {
                     call.reject(e.getMessage());
                 }
             });
