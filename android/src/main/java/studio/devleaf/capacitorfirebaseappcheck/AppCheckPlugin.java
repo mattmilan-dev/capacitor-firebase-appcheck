@@ -13,8 +13,6 @@ import com.google.firebase.appcheck.FirebaseAppCheck;
 import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory;
 import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory;
 
-import org.jetbrains.annotations.NotNull;
-
 @CapacitorPlugin(name = "AppCheck")
 public class AppCheckPlugin extends Plugin {
 
