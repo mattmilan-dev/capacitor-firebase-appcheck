@@ -34,21 +34,6 @@ can [use this link to the iOS Firebase Docs](https://firebase.google.com/docs/io
 For Android, you also need to ensure firebase is set up in your project before continuing. You
 can [use this link to the Android Firebase Docs (Step 3)](https://firebase.google.com/docs/android/setup#add-config-file) to see how to set up your project.
 
-You may also need to instantiate the class with your `MainActivity.java` as follows:
-
-```java
-// Android/app/src/main/java/MainActivity.java
-...
-import studio.devleaf.capacitorfirebaseappcheck.AppCheckPlugin
-...
-@Override
-public void onCreate(Bundle savedInstanceState) {
-  super.onCreate(savedInstanceState);
-  ...
-  registerPlugin(AppcheckPlugin.class);
-}
-```
-
 ## Usage
 
 ```typescript
@@ -102,6 +87,7 @@ try {
     - [Interfaces](#interfaces)
       - [InitializationOptions](#initializationoptions)
       - [AppCheckToken](#appchecktoken)
+  - [Contributors ✨](#contributors-)
 
 </docgen-index>
 

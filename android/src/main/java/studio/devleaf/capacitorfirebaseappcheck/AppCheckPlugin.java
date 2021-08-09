@@ -47,24 +47,18 @@ public class AppCheckPlugin extends Plugin {
 
     @PluginMethod()
     public void getAppCheckToken(PluginCall call) {
-        FirebaseAppCheck.getInstance()
-            .getAppCheckToken(false)
-            .addOnSuccessListener(new OnSuccessListener<AppCheckToken>() {
-                @Override
-                public void onSuccess(AppCheckToken tokenResponse) {
-                    String appCheckToken = tokenResponse.getToken();
-                    JSObject ret = new JSObject();
-                    ret.put("token", appCheckToken);
-                    ret.put("exp", tokenResponse.getExpireTimeMillis());
-                    call.resolve(ret);
-                }
-            })
-            .addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(Exception e) {
+        FirebaseAppCheck
+                .getInstance()
+                .getAppCheckToken(false)
+                .addOnSuccessListener(appCheckToken -> {
+                   JSObject ret = new JSObject();
+                   ret.put("token", appCheckToken.getToken());
+                   ret.put("exp", appCheckToken.getExpireTimeMillis());
+                   call.resolve(ret);
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("AppCheckGetToken", e.getMessage());
                     call.reject(e.getMessage());
-                }
-            });
-
+                });
     }
 }
